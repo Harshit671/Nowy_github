@@ -1,5 +1,5 @@
 import { request } from '@octokit/request';
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 
@@ -43,7 +43,6 @@ const Mainpage = (props) => {
             "Authorization": "Token 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"
         }
         const list = await request('GET /repos/{owner}/{repo}/compare/{basehead}', {
-            Accept: "application/vnd.github.VERSION.patch",
             owner: 'Harshit671',
             repo: 'name',
             basehead: "master...master",

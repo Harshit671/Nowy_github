@@ -9,47 +9,15 @@ import * as fs from 'fs';
 const Createrepo = () => {
     const [data, setData] = useState("");
     const createRepo = async () => {
-        const TOKEN = "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";
-
-        // const auth = createTokenAuth(TOKEN);
-        // const authentication = await auth();
-
         const headers = {
             "Authorization": "Token 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"
         }
-        //     const octokit = new Octokit
-        //     // const data = await request('POST /orgs/{org}/repos', {
-        //     //     org: 'harshit67',
-        //     //     name: 'name1',
-        //     //     headers: headers
-        //     // })
         const data = await request('POST /user/repos', {
             name: 'name',
             headers: headers
         })
-
-        // console.log(data)
-
-        // useEffect(() => {
-        //     fetch('https://api.github.com/users/Harshit671')
-        //         .then(res => res.json())
-        //         .then(data => { console.log(data) })
-        // }, [])
-        // { console.log(authentication) }
     }
-    const addBlob = async () => {
-        const headers = {
-            "Authorization": "Token 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"
-        }
-        const data = await request('POST /repos/{owner}/{repo}/git/commits', {
-            owner: 'Harshit671',
-            repo: 'name',
-            message: 'message',
-            tree: 'master',
-            headers: headers
-        })
-        console.log(data);
-    }
+
     const onChange = (e) => {
         setData(e.target.value);
     }
@@ -80,7 +48,6 @@ const Createrepo = () => {
         <div>
             <input type="search" id="myInput" onChange={(e) => onChange(e)} />
             <button onClick={() => createRepo()}>create</button>
-            <button onClick={() => addBlob()}>Blob</button>
             <button onClick={() => addFile()}>AddFile</button>
             <button onClick={() => getFile()}>GetFile</button>
         </div>

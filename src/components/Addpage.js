@@ -26,7 +26,7 @@ const Addpage = () => {
             owner: 'Harshit671',
             repo: 'name',
             message: 'message',
-            branch: 'master',
+            branch: 'newBranch',
             headers: headers
         })
         console.log(response)
