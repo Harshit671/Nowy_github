@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import Addpage from './components/Addpage';
+import Mainpage from './components/Mainpage';
+import Editpage from './components/Editpage';
+import Viewpage from './components/Viewpage';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-function App() {
+const App = () => {
+  const [data, setData] = useState({
+    id: "",
+    info: ""
+  })
+  const getData = (id, data, name) => {
+    setData({
+      id: id,
+      info: data,
+      name: name
+    })
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    < >
+      <Router >
+        <Switch>
+          <Route exact path="/"  ><Mainpage getData={getData} /></Route>
+          <Route exact path="/add" component={Addpage} />
+          <Route exact path="/view" ><Viewpage data={data} /></Route>
+          <Route exact path="/edit" ><Editpage data={data} /></Route>
+        </Switch>
+      </Router>
+    </>
+  )
 }
 
-export default App;
+export default App
