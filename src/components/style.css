@@ -1,0 +1,10 @@
+li {
+    cursor: pointer
+}
+button{
+    margin-left: 10px; 
+}
+.editorClassName{
+    background-color: rgb(255, 255, 255);
+    border : 1px solid rgb(7, 7, 7,0.5)
+}
