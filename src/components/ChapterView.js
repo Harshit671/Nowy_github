@@ -119,7 +119,6 @@ const ChapterView = (props) => {
     }, [])
     useEffect(() => {
         setTimeout(() => getData(), 4000)
-
     }, [])
 
 
